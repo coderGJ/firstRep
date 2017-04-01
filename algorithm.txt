@@ -1,4 +1,4 @@
-algorithm
+//一个利用缓存块写入流的算法
 private BufferedOutputStream out;       
 	int offset = 0;
         int chunckSize = 1024;
