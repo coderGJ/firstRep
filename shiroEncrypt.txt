@@ -1,0 +1,13 @@
+// 将用户名、密码加密作为token返回给手机端
+AesCipherService aesCipherService = new AesCipherService();
+aesCipherService.setKeySize(128);
+// 生成key
+Key key = aesCipherService.generateNewKey();
+session.setAttribute(Constants.LOGIN_KEY, key);
+
+String nameAndPwd = acMember.getUsername() + "," + acMember.getPassword();
+// 加密
+String tokenStr = aesCipherService.encrypt(nameAndPwd.getBytes(), key.getEncoded()).toHex();
+//解密
+validCodeAndTime = new String(aesCipherService.decrypt(Hex.decode(tokenStr),
+        key.getEncoded()).getBytes());
