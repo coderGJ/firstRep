@@ -1,4 +1,4 @@
-package com.guojun.share.listener;
+package com.qmxx.listener;
 
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
@@ -20,12 +20,12 @@ public class OnlineUserCounterListener implements HttpSessionListener {
     public int getUserCounter() {
         return userCounter;
     }
-    @Override
+
     public void sessionCreated(HttpSessionEvent arg0) {
         userCounter ++;
     }
 
-    @Override
+
     public void sessionDestroyed(HttpSessionEvent arg0) {
         userCounter --;
     }

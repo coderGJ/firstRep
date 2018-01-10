@@ -11,3 +11,13 @@ String tokenStr = aesCipherService.encrypt(nameAndPwd.getBytes(), key.getEncoded
 //解密
 validCodeAndTime = new String(aesCipherService.decrypt(Hex.decode(tokenStr),
         key.getEncoded()).getBytes());
+        
+    //判断字符串中是否含Emoji表情正则表达式       
+    public boolean hasEmoji(String content){
+        Pattern pattern = Pattern.compile("[\ud83c\udc00-\ud83c\udfff]|[\ud83d\udc00-\ud83d\udfff]|[\u2600-\u27ff]");
+        Matcher matcher = pattern.matcher(content);
+        if(matcher .find()){
+            return true;    
+        }
+        return false;
+    }
