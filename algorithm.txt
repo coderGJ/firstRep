@@ -17,7 +17,7 @@ import java.util.regex.Matcher;
   
 　　String value="手机号";  
   
-　　String regExp = "^[1]([3][0-9]{1}|59|58|88|89)[0-9]{8}$";  
+　　String regExp = "^1((3[0-9])|59|58|88|89)[0-9]{8}$";  
   
 　　Pattern p = Pattern.compile(regExp);  
   
@@ -29,31 +29,31 @@ import java.util.regex.Matcher;
 方法二：
 
 import java.io.IOException;  
-  
+
 　　import java.util.regex.Matcher;  
-  
+
 　　import java.util.regex.Pattern;  
-  
+
 　　public class ClassPathResource {  
-  
+
 　　public static boolean isMobileNO(String mobiles){  
-  
-　　Pattern p = Pattern.compile("^((13[0-9])|(15[^4,\\D])|(18[0,5-9]))\\d{8}$");  
-  
+
+　　Pattern p = Pattern.compile("^((13[0-9])|(15[^4])|(18[0-9])|(17[3678]))\\d{8}$");  
+
 　　Matcher m = p.matcher(mobiles);  
-  
+
 　　System.out.println(m.matches()+"---");  
-  
+
 　　return m.matches();  
-  
+
 　　}  
-  
+
 　　public static void main(String[] args) throws IOException {  
-  
+
 　　System.out.println(ClassPathResource.isMobileNO("12016155153"));  
-  
+
 　　}  
-  
+
 　　}
 
 ----------------------------------------------------------------------------------------------------  
